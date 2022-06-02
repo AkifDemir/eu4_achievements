@@ -1,6 +1,6 @@
-# project_a
+# Eu4 Achievement Project 
 
-A new Flutter project.
+A Flutter project.
 
 ## Getting Started
 
