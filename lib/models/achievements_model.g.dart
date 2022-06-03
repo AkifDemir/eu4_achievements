@@ -19,6 +19,7 @@ class AchievementAdapter extends TypeAdapter<Achievement> {
     return Achievement(
       fields[0] as String,
       fields[1] as String,
+      fields[3] as String,
     )..isDone = fields[2] as bool;
   }
 

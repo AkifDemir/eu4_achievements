@@ -13,5 +13,8 @@ class Achievement {
   @HiveField(2)
   bool isDone = false;
 
-  Achievement(this.name, this.desc);
+  @HiveField(3)
+  String image;
+
+  Achievement(this.name, this.desc, this.image);
 }

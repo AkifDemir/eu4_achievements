@@ -5,12 +5,12 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:project_a/models/achievements_model.dart';
 
 class RemainAchsTab extends StatefulWidget {
-  const RemainAchsTab(
-      {Key? key, required this.achBox, required this.finishedAchBox})
-      : super(key: key);
+  const RemainAchsTab({
+    Key? key,
+    required this.achBox,
+  }) : super(key: key);
 
   final Box<Achievement> achBox;
-  final Box<Achievement> finishedAchBox;
 
   @override
   State<RemainAchsTab> createState() => _RemainAchsTabState();
@@ -31,8 +31,9 @@ class _RemainAchsTabState extends State<RemainAchsTab> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8)),
                   contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-                  title: Text(currentAch!.name),
+                      EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                  leading: Image.asset(currentAch!.image),
+                  title: Text(currentAch.name),
                   subtitle: Text(currentAch.desc),
                   trailing: IconButton(
                     icon: Icon(
@@ -42,7 +43,6 @@ class _RemainAchsTabState extends State<RemainAchsTab> {
                     onPressed: () {
                       setState(() {
                         currentAch.isDone = true;
-                        widget.finishedAchBox.add(currentAch);
                       });
                     },
                   )),

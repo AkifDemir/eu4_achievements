@@ -11,11 +11,9 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({
     Key? key,
     required this.achBox,
-    required this.finishedAchBox,
   }) : super(key: key);
 
   final Box<Achievement> achBox;
-  final Box<Achievement> finishedAchBox;
 
   @override
   Widget build(BuildContext context) {
@@ -42,19 +40,11 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           body: achBox.isEmpty
-              ? Center(child: Text("There is empty!"))
+              ? Center(child: Text("Database connection has been lost!"))
               : TabBarView(children: [
-                  AllAchsTab(
-                    achBox: achBox,
-                    finishedAchBox: finishedAchBox,
-                  ),
-                  FinishedAchsTab(
-                    finishedAchBox: finishedAchBox,
-                  ),
-                  RemainAchsTab(
-                    achBox: achBox,
-                    finishedAchBox: finishedAchBox,
-                  ),
+                  AllAchsTab(achBox: achBox),
+                  FinishedAchsTab(achBox: achBox),
+                  RemainAchsTab(achBox: achBox),
                 ])),
     );
   }

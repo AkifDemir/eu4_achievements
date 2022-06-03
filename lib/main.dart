@@ -41,9 +41,6 @@ class _HomePageState extends State<HomePage> {
     return MaterialApp(
         theme: ThemeData(fontFamily: "Tiro Devanagari Sanskrit"),
         debugShowCheckedModeBanner: false,
-        home: HomeScreen(
-          achBox: achBox,
-          finishedAchBox: finishedAchBox,
-        ));
+        home: HomeScreen(achBox: achBox));
   }
 }

@@ -8,11 +8,9 @@ class AllAchsTab extends StatefulWidget {
   const AllAchsTab({
     Key? key,
     required this.achBox,
-    required this.finishedAchBox,
   }) : super(key: key);
 
   final Box<Achievement> achBox;
-  final Box<Achievement> finishedAchBox;
 
   @override
   State<AllAchsTab> createState() => _AllAchsTabState();
@@ -32,8 +30,11 @@ class _AllAchsTabState extends State<AllAchsTab> {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8)),
               contentPadding:
-                  EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-              title: Text(currentAch!.name),
+                  EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+              leading: Image.asset(
+                currentAch!.image,
+              ),
+              title: Text(currentAch.name),
               subtitle: Text(currentAch.desc),
               trailing: currentAch.isDone == false
                   ? IconButton(
@@ -44,7 +45,6 @@ class _AllAchsTabState extends State<AllAchsTab> {
                       onPressed: () {
                         setState(() {
                           currentAch.isDone = true;
-                          widget.finishedAchBox.add(currentAch);
                         });
                       },
                     )
@@ -53,7 +53,11 @@ class _AllAchsTabState extends State<AllAchsTab> {
                         Icons.favorite,
                         color: Colors.red,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          currentAch.isDone = false;
+                        });
+                      },
                     ),
             ),
           );
